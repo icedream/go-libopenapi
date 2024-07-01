@@ -5,6 +5,7 @@ package base
 
 import (
 	"encoding/json"
+
 	"github.com/pb33f/libopenapi/datamodel/high"
 	lowmodel "github.com/pb33f/libopenapi/datamodel/low"
 	"github.com/pb33f/libopenapi/datamodel/low/base"
@@ -78,8 +79,8 @@ type Schema struct {
 	Properties           *orderedmap.Map[string, *SchemaProxy] `json:"properties,omitempty" yaml:"properties,omitempty"`
 	Title                string                                `json:"title,omitempty" yaml:"title,omitempty"`
 	MultipleOf           *float64                              `json:"multipleOf,omitempty" yaml:"multipleOf,omitempty"`
-	Maximum              *float64                              `json:"maximum,renderZero,omitempty" yaml:"maximum,renderZero,omitempty"`
-	Minimum              *float64                              `json:"minimum,renderZero,omitempty," yaml:"minimum,renderZero,omitempty"`
+	Maximum              *float64                              `json:"maximum,renderZero,omitempty" yaml:"maximum,omitempty"`
+	Minimum              *float64                              `json:"minimum,renderZero,omitempty," yaml:"minimum,omitempty"`
 	MaxLength            *int64                                `json:"maxLength,omitempty" yaml:"maxLength,omitempty"`
 	MinLength            *int64                                `json:"minLength,omitempty" yaml:"minLength,omitempty"`
 	Pattern              string                                `json:"pattern,omitempty" yaml:"pattern,omitempty"`
@@ -91,13 +92,13 @@ type Schema struct {
 	MinProperties        *int64                                `json:"minProperties,omitempty" yaml:"minProperties,omitempty"`
 	Required             []string                              `json:"required,omitempty" yaml:"required,omitempty"`
 	Enum                 []*yaml.Node                          `json:"enum,omitempty" yaml:"enum,omitempty"`
-	AdditionalProperties *DynamicValue[*SchemaProxy, bool]     `json:"additionalProperties,renderZero,omitempty" yaml:"additionalProperties,renderZero,omitempty"`
+	AdditionalProperties *DynamicValue[*SchemaProxy, bool]     `json:"additionalProperties,renderZero,omitempty" yaml:"additionalProperties,omitempty"`
 	Description          string                                `json:"description,omitempty" yaml:"description,omitempty"`
-	Default              *yaml.Node                            `json:"default,omitempty" yaml:"default,renderZero,omitempty"`
-	Const                *yaml.Node                            `json:"const,omitempty" yaml:"const,renderZero,omitempty"`
+	Default              *yaml.Node                            `json:"default,omitempty" yaml:"default,omitempty"`
+	Const                *yaml.Node                            `json:"const,omitempty" yaml:"const,omitempty"`
 	Nullable             *bool                                 `json:"nullable,omitempty" yaml:"nullable,omitempty"`
-	ReadOnly             *bool                                 `json:"readOnly,renderZero,omitempty" yaml:"readOnly,renderZero,omitempty"`   // https://github.com/pb33f/libopenapi/issues/30
-	WriteOnly            *bool                                 `json:"writeOnly,renderZero,omitempty" yaml:"writeOnly,renderZero,omitempty"` // https://github.com/pb33f/libopenapi/issues/30
+	ReadOnly             *bool                                 `json:"readOnly,renderZero,omitempty" yaml:"readOnly,omitempty"`   // https://github.com/pb33f/libopenapi/issues/30
+	WriteOnly            *bool                                 `json:"writeOnly,renderZero,omitempty" yaml:"writeOnly,omitempty"` // https://github.com/pb33f/libopenapi/issues/30
 	XML                  *XML                                  `json:"xml,omitempty" yaml:"xml,omitempty"`
 	ExternalDocs         *ExternalDoc                          `json:"externalDocs,omitempty" yaml:"externalDocs,omitempty"`
 	Example              *yaml.Node                            `json:"example,omitempty" yaml:"example,omitempty"`

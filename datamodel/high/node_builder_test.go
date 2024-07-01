@@ -68,10 +68,10 @@ type test1 struct {
 	Thung      float64                                           `yaml:"thung,omitempty"`
 	Thyme      bool                                              `yaml:"thyme,omitempty"`
 	Thurm      any                                               `yaml:"thurm,omitempty"`
-	Thugg      *bool                                             `yaml:"thugg,renderZero"`
+	Thugg      *bool                                             `yaml:"thugg"`
 	Thurr      *int64                                            `yaml:"thurr,omitempty"`
 	Thral      *float64                                          `yaml:"thral,omitempty"`
-	Throo      *float64                                          `yaml:"throo,renderZero,omitempty"`
+	Throo      *float64                                          `yaml:"throo,omitempty"`
 	Tharg      []string                                          `yaml:"tharg,omitempty"`
 	Type       []string                                          `yaml:"type,omitempty"`
 	Throg      []*valueReferenceStruct                           `yaml:"throg,omitempty"`
@@ -144,10 +144,10 @@ type test2 struct {
 	Thung      float64                                           `yaml:"thung,omitempty"`
 	Thyme      bool                                              `yaml:"thyme,omitempty"`
 	Thurm      any                                               `yaml:"thurm,omitempty"`
-	Thugg      *bool                                             `yaml:"thugg,renderZero"`
+	Thugg      *bool                                             `yaml:"thugg"`
 	Thurr      *int64                                            `yaml:"thurr,omitempty"`
 	Thral      *float64                                          `yaml:"thral,omitempty"`
-	Throo      *float64                                          `yaml:"throo,renderZero,omitempty"`
+	Throo      *float64                                          `yaml:"throo,omitempty"`
 	Tharg      []string                                          `yaml:"tharg,omitempty"`
 	Type       []string                                          `yaml:"type,omitempty"`
 	Throg      []*valueReferenceStruct                           `yaml:"throg,omitempty"`
@@ -175,7 +175,6 @@ func (t test2) GetReference() string {
 }
 
 func (t test2) SetReference(ref string, _ *yaml.Node) {
-
 }
 
 func (t test2) GetReferenceNode() *yaml.Node {
@@ -427,7 +426,7 @@ func TestNewNodeBuilder_Bool(t *testing.T) {
 
 func TestNewNodeBuilder_BoolRenderZero(t *testing.T) {
 	type yui struct {
-		Thrit bool `yaml:"thrit,renderZero"`
+		Thrit bool `yaml:"thrit"`
 	}
 	t1 := new(yui)
 	t1.Thrit = false

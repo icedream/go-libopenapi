@@ -15,7 +15,7 @@ import (
 type RequestBody struct {
 	Description string                              `json:"description,omitempty" yaml:"description,omitempty"`
 	Content     *orderedmap.Map[string, *MediaType] `json:"content,omitempty" yaml:"content,omitempty"`
-	Required    *bool                               `json:"required,omitempty" yaml:"required,renderZero,omitempty"`
+	Required    *bool                               `json:"required,omitempty" yaml:"required,omitempty"`
 	Extensions  *orderedmap.Map[string, *yaml.Node] `json:"-" yaml:"-"`
 	low         *low.RequestBody
 }
